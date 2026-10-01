@@ -27,3 +27,7 @@ files = [
 # Create folders
 for folder in folders:
     (root / folder).mkdir(parents=True, exist_ok=True)
+
+# Create files
+for file in files:
+    (root / file).touch(exist_ok=True)
