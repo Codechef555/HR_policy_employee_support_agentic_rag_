@@ -14,3 +14,12 @@ folders = [
     "uploads",
     "tests",
 ]
+
+# Files to create
+files = [
+    "app/main.py",
+    "ingest_sample_kb.py",
+    "requirements.txt",
+    "run.py",
+    ".env",
+]
