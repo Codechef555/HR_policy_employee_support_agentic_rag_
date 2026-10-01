@@ -31,3 +31,6 @@ for folder in folders:
 # Create files
 for file in files:
     (root / file).touch(exist_ok=True)
+
+
+print("Project structure created successfully.")
