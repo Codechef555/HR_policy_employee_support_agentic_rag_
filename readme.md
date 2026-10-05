@@ -2,14 +2,16 @@
 
 <p align="center">An intelligent HR policy assistant powered by Agentic AI and Retrieval-Augmented Generation (RAG)
 
-</p><p align="center">"Python" (https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
-"AI" (https://img.shields.io/badge/AI-Agentic%20RAG-8A2BE2?style=for-the-badge)
-"RAG" (https://img.shields.io/badge/RAG-Retrieval%20Augmented%20Generation-FF6F00?style=for-the-badge)
-"Status" (https://img.shields.io/badge/Status-Active-2EA44F?style=for-the-badge)
+</p>
+      <p align="center">"Python" (https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+      "AI" (https://img.shields.io/badge/AI-Agentic%20RAG-8A2BE2?style=for-the-badge)
+      "RAG" (https://img.shields.io/badge/RAG-Retrieval%20Augmented%20Generation-FF6F00?style=for-the-badge)
+      "Status" (https://img.shields.io/badge/Status-Active-2EA44F?style=for-the-badge)
 
-</p><p align="center"><a href="https://github.com/Codechef555/HR_policy_employee_support_agentic_rag_">
-<img src="https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github">
-</a></p>---
+      </p><p align="center"><a href="https://github.com/Codechef555/HR_policy_employee_support_agentic_rag_">
+      <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github">
+      </a>
+</p>---
 
 📌 Overview
 
