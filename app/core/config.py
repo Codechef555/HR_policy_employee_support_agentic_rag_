@@ -14,3 +14,5 @@ class Settings(BaseSettings):
     pinecone_namespace: str = "company-hr-kb"
     embedding_model: str = "text-embedding-3-small"
     openai_model: str = "gpt-4o-mini"
+    top_k: int = 4
+    max_retries: int = 1
