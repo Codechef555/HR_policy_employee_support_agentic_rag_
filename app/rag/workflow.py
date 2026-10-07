@@ -20,7 +20,7 @@ def llm():
         if not settings.openai_api_key:
             raise RuntimeError("openai_api_key is missing")
         _llm = ChatOpenAI(
-            model = settings.openai_model
+            model = settings.openai_model,
             temperature = 0,
             api_key = settings.openai_api_key,
         )
@@ -31,4 +31,11 @@ def web_search_tool():
     if _web_search is None:
         if not settings.tavily_api_key:
             raise RuntimeError("tavily_api_key is missing")
-        _web_search = TavilySearch()
+        _web_search = TavilySearch(
+            tavily_api_key = settings.tavily_api_key,
+            max_results = 5,
+            topic="general",
+            include_answer=True,
+            include_raw_content=False
+        )
+    return _web_search
