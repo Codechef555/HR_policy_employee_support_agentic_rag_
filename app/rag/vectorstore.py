@@ -15,3 +15,23 @@ EMBEDDING_DIMENSIONS = {
     "text-embedding-ada-002": 1536,
     "all-minilm-l6-v2": 384,
 }
+
+def get_embedding_dimension(model_name: str | None = None) -> int:
+    name = (model_name or settings.embedding_model or "").strip()
+    if not name:
+        raise RuntimeError("Embedding model is not configured")
+    normalized = name.lower()
+    if normalized in EMBEDDING_DIMENSIONS:
+        return EMBEDDING_DIMENSIONS[normalized]
+    if "text-embedding-3-small" in normalized:
+        return 1536
+    if "text-embedding-3-large" in normalized:
+        return 3072
+    if "text-embedding-ada-002" in normalized:
+        return 1536
+    if "all-minilm" in normalized:
+        return 384
+    raise ValueError(
+        f"Unsupported embedding model '{model_name or settings.embedding_model}' for Pinecone. "
+        "Add the matching dimension to EMBEDDING_DIMENSIONS."
+    )
