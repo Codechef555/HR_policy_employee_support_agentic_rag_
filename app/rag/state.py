@@ -2,3 +2,4 @@
 
 from typing import List, Literal
 from typing_extensions import TypedDict
+from pydantic import BaseModel, Field
