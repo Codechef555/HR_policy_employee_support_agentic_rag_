@@ -13,4 +13,14 @@ class EvidenceGrade(BaseModel):
     grade: Literal['good','weak'] = Field(description="Whether evidence is sufficient to answer")
 
 class AgentState(TypedDict):
-    
+    question: str
+    current_query: str
+    kb_docs: List[Document]
+    web_results: str
+    kb_grade: str
+    web_grade: str
+    answer: str
+    source_used: str
+    retry_count: int
+    trace: List[str]
+    citations: List[dict]
