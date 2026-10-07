@@ -13,3 +13,10 @@ settings = get_settings()
 
 _llm = None
 _web_search = None
+
+def llm():
+    global _llm
+    if _llm is None:
+        if not settings.openai_api_key:
+            raise RuntimeError("openai_api_key is missing")
+        _llm = ChatOpenAI()
