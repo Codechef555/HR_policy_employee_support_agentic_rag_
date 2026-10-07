@@ -13,3 +13,4 @@ for path in files:
 
 chunks = chunk_documents(all_docs) 
 ids = add_documents(chunks)
+print(f"Indexed {len(files)} files -> {len(chunks)} chunks -> {len(ids)} Pinecone vectors")
