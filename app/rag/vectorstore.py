@@ -35,3 +35,9 @@ def get_embedding_dimension(model_name: str | None = None) -> int:
         f"Unsupported embedding model '{model_name or settings.embedding_model}' for Pinecone. "
         "Add the matching dimension to EMBEDDING_DIMENSIONS."
     )
+
+def get_embeddings():
+    global _embeddings
+    if _embeddings is None:
+        if not settings.openai_api_key:
+            raise RuntimeError("OPENAI_API_KEY is missing")
