@@ -25,3 +25,10 @@ def llm():
             api_key = settings.openai_api_key,
         )
     return _llm
+
+def web_search_tool():
+    global _web_search
+    if _web_search is None:
+        if not settings.tavily_api_key:
+            raise RuntimeError("tavily_api_key is missing")
+        _web_search = TavilySearch()
