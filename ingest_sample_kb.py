@@ -8,3 +8,6 @@ folder = Path(settings.sample_kb_dir)
 files = [p for p in folder.iterdir() if p.is_file()]
 
 all_docs = []
+for path in files:
+    all_docs.extend(load_file(path))
+    
