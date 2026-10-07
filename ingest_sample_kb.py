@@ -5,3 +5,4 @@ from app.rag.vectorstore import add_documents
 
 settings = get_settings()
 folder = Path(settings.sample_kb_dir)
+files = [p for p in folder.iterdir() if p.is_file()]
