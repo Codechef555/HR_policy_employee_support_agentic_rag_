@@ -10,4 +10,6 @@ files = [p for p in folder.iterdir() if p.is_file()]
 all_docs = []
 for path in files:
     all_docs.extend(load_file(path))
-    
+
+chunks = chunk_documents(all_docs) 
+ids = add_documents(chunks)
