@@ -39,3 +39,6 @@ def web_search_tool():
             include_raw_content=False
         )
     return _web_search
+
+def add_trace(state: AgentState, message: str):
+    return [*state.get("trace",[]), message]
