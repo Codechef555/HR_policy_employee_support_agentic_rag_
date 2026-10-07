@@ -18,3 +18,7 @@ def load_file(path: Path) -> list[Document]:
         text = "\n".join(p.text for p in doc.paragraphs if p.text.strip())
         return [Document(page_content=text, metadata={"source": str(path)})]
     raise ValueError(f"Unsupported file type: {suffix}")
+
+#large text into chunks
+def chunk_documents(docs: Iterable[Document]) -> list[Document]:
+    splitter = RecursiveCharacterTextSplitter(chunk_size=300, chunk_overlap=120, add_start_index=True)
