@@ -19,4 +19,9 @@ def llm():
     if _llm is None:
         if not settings.openai_api_key:
             raise RuntimeError("openai_api_key is missing")
-        _llm = ChatOpenAI()
+        _llm = ChatOpenAI(
+            model = settings.openai_model
+            temperature = 0,
+            api_key = settings.openai_api_key,
+        )
+    return _llm
