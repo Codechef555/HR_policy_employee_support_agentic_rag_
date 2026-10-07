@@ -4,3 +4,4 @@ from typing import Literal
 from langchain_openai import ChatOpenAI
 from langchain_tavily import TavilySearch
 from langgraph.graph import StateGraph, START, END
+from app.core.config import get_settings
