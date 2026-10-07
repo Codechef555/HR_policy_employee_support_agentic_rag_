@@ -42,3 +42,5 @@ def web_search_tool():
 
 def add_trace(state: AgentState, message: str):
     return [*state.get("trace",[]), message]
+
+##def route_question
