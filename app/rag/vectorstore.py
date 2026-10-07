@@ -41,3 +41,8 @@ def get_embeddings():
     if _embeddings is None:
         if not settings.openai_api_key:
             raise RuntimeError("OPENAI_API_KEY is missing")
+        _embeddings = OpenAIEmbeddings(
+            model= settings.embedding_model,
+            api_key= settings.openai_api_key
+        )
+    return _embeddings
