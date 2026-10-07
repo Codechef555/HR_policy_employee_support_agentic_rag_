@@ -42,12 +42,18 @@ def web_search_tool():
 
 def add_trace(state: AgentState, message: str):
     return [*state.get("trace",[]), message]
-<<<<<<< HEAD
 
 def route_question(state: AgentState):
     router = llm().with_structured_output(RouteDecision, method="json_mode")
-=======
+    decision = router.invoke(f"""
+You route messages for an enterprise HR policy and employee support assistant.
+Use kb for questions about company HR policies, leave, holidays, benefits, payroll,
+remote work, attendance, onboarding, performance, expenses, travel, conduct, or employee support.
+Use direct only for greetings, thanks, or casual chat that needs no company knowledge.
+Question: {state['question']}
+Return valid JSON like {{"route":"kb"}}.
+""")
+    return {"source_used":decision.route, "trace": add_trace(state, f"Router -> {decision.route.upper()}")}
 
-##def route_question
 
->>>>>>> 03380ab41201662cb0ad1b7efbab01265fbca750
+
