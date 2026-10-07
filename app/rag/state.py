@@ -4,3 +4,6 @@ from typing import List, Literal
 from typing_extensions import TypedDict
 from pydantic import BaseModel, Field
 from langchain_core.documents import Document
+
+class RouteDecision(BaseModel):
+    route: Literal["kb", "direct"] = Field(description="kb for HR/policy questions; direct for greetings/simple chat")
