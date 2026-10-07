@@ -11,3 +11,6 @@ class RouteDecision(BaseModel):
 
 class EvidenceGrade(BaseModel):
     grade: Literal['good','weak'] = Field(description="Whether evidence is sufficient to answer")
+
+class AgentState(TypedDict):
+    
