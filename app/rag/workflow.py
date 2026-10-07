@@ -42,5 +42,12 @@ def web_search_tool():
 
 def add_trace(state: AgentState, message: str):
     return [*state.get("trace",[]), message]
+<<<<<<< HEAD
+
+def route_question(state: AgentState):
+    router = llm().with_structured_output(RouteDecision, method="json_mode")
+=======
 
 ##def route_question
+
+>>>>>>> 03380ab41201662cb0ad1b7efbab01265fbca750
