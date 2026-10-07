@@ -87,3 +87,7 @@ def get_vectorstore():
             namespace=settings.pinecone_namespace,
         )
     return _vectorstore
+
+def get_retriever():
+    return get_vectorstore().as_retriever(search_kwargs={"k": settings.top_k})
+
