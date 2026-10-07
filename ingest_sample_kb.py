@@ -4,3 +4,4 @@ from app.services.ingestion import load_file, chunk_documents
 from app.rag.vectorstore import add_documents
 
 settings = get_settings()
+folder = Path(settings.sample_kb_dir)
