@@ -10,3 +10,6 @@ from app.rag.vectorstore import get_retriever
 
 logger = logging.get_logger(__name__)
 settings = get_settings()
+
+_llm = None
+_web_search = None
