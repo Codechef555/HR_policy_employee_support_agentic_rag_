@@ -8,3 +8,10 @@ settings = get_settings()
 
 _embeddings = None
 _vectorstore = None
+
+EMBEDDING_DIMENSIONS = {
+    "text-embedding-3-small": 1536,
+    "text-embedding-3-large": 3072,
+    "text-embedding-ada-002": 1536,
+    "all-minilm-l6-v2": 384,
+}
