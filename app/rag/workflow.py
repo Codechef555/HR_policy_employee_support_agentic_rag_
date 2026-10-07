@@ -7,3 +7,6 @@ from langgraph.graph import StateGraph, START, END
 from app.core.config import get_settings
 from app.rag.state import AgentState, RouteDecision, EvidenceGrade
 from app.rag.vectorstore import get_retriever
+
+logger = logging.get_logger(__name__)
+settings = get_settings()
