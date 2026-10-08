@@ -160,3 +160,5 @@ def insufficient(state: AgentState):
         "source_used": "insufficient_evidence",
         "trace": add_trace(state, "Stopped → insufficient reliable evidence"),
     }
+
+def build_graph():
