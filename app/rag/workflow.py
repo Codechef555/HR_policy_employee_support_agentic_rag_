@@ -55,5 +55,6 @@ Return valid JSON like {{"route":"kb"}}.
 """)
     return {"source_used":decision.route, "trace": add_trace(state, f"Router -> {decision.route.upper()}")}
 
-
+def route_after_router(state: AgentState) -> Literal["retrieve_kb", "direct_answer"]:
+    return "retrieve_kb" if state["source_used"] == "kb" else "direct_answer"
 
