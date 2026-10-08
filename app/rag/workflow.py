@@ -76,3 +76,22 @@ Otherwise return weak. JSON: {{"grade":"good"}} or {{"grade":"weak"}}.
 
 def after_kb(state: AgentState) -> Literal["generate_from_kb", "search_web"]:
     return "generate_from_kb" if state["kb_grade"] == "good" else "search_web"
+
+def search_web(state: AgentState):
+    result = web_search_tool().invoke({"query": state["current_query"]})
+    lines, citations = [], []
+    if isinstance(result, dict):
+        if result.get("answer"):
+            lines.append("Search answer: " + result["answer"])
+        for item in result.get("results", []):
+            title, url, content = item.get("title", ""), item.get("url", ""), item.get("content", "")
+            lines.append(f"Title: {title}\nURL: {url}\nContent: {content}")
+            citations.append({"title": title or url, "url": url, "type": "web"})
+    else:
+        lines.append(str(result))
+    return {
+        "web_results": "\n\n".join(lines),
+        "citations": citations,
+        "source_used": "web",
+        "trace": add_trace(state, "Web fallback → Tavily search"),
+    }
