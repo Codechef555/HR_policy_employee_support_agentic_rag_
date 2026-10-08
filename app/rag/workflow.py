@@ -112,3 +112,15 @@ def after_web(state: AgentState) -> Literal["generate_from_web", "insufficient",
     if state['retry_count'] < settings.max_retries:
         return "rewrite_query"
     return "insufficient"
+
+def rewrite_query(state: AgentState):
+    rewritten = llm().invoke(f"""
+Rewrite this HR/employee-support question for better private knowledge retrieval and public web search.
+Preserve intent, add useful HR/policy keywords, do not answer, return only the query.
+Question: {state['question']}
+""").content.strip()
+    return {
+        "current_query": rewritten,
+        "retry_count": state["retry_count"] + 1,
+        "trace": add_trace(state, f"Query rewrite → {rewritten}"),
+    }
