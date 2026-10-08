@@ -124,7 +124,7 @@ Question: {state['question']}
         "retry_count": state["retry_count"] + 1,
         "trace": add_trace(state, f"Query rewrite → {rewritten}"),
     }
-    
+
 def generate_from_kb(state: AgentState):
     context = "\n\n".join(f"[Source: {d.metadata.get('source','unknown')}]\n{d.page_content}" for d in state["kb_docs"])
     answer = llm().invoke(f"""
@@ -141,3 +141,4 @@ Question: {state['question']}\n\nPrivate KB:\n{context}
             seen.add(src)
             citations.append({"title": src.split("/")[-1], "url": "", "type": "private_kb"})
     return {"answer": answer, "source_used": "private_kb", "citations": citations, "trace": add_trace(state, "Answer generation → PRIVATE KB")}
+
