@@ -110,4 +110,5 @@ def after_web(state: AgentState) -> Literal["generate_from_web", "insufficient",
     if state['grade'] == "good":
         return "generate_from_web"
     if state['retry_count'] < settings.max_retries:
-        
+        return "rewrite_query"
+    return "insufficient"
