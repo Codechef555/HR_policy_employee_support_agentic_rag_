@@ -162,3 +162,4 @@ def insufficient(state: AgentState):
     }
 
 def build_graph():
+    graph = StateGraph(AgentState)
