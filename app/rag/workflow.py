@@ -153,3 +153,10 @@ Question: {state['question']}\n\nWeb evidence:\n{state['web_results']}
 def direct_answer(state: AgentState):
     answer = llm().invoke(f"Respond briefly and naturally to: {state['question']}").content
     return {"answer": answer, "source_used": "direct", "trace": add_trace(state, "Direct response → no retrieval")}
+
+def insufficient(state: AgentState):
+    return {
+        "answer": "I couldn't find enough reliable evidence in the company HR knowledge base or external search to answer confidently. Please contact the HR team or provide more details.",
+        "source_used": "insufficient_evidence",
+        "trace": add_trace(state, "Stopped → insufficient reliable evidence"),
+    }
