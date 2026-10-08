@@ -213,3 +213,4 @@ def ask(question: str):
         "trace": [],
         "citations": [],
     }
+    return agent_graph.invoke(initial)
