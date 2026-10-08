@@ -194,3 +194,4 @@ def build_graph():
     graph.add_edge("generate_from_web", END)
     graph.add_edge("direct_answer", END)
     graph.add_edge("insufficient", END)
+    return graph.compile()
