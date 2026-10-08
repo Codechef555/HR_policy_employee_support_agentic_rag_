@@ -95,3 +95,13 @@ def search_web(state: AgentState):
         "source_used": "web",
         "trace": add_trace(state, "Web fallback → Tavily search"),
     }
+
+def grade_web(state: AgentState):
+    grader = llm().with_structured_output(EvidenceGrade, method="json_mode")
+    grade = grader.invoke(f"""
+Question: {state['question']}
+Web evidence:\n{state['web_results']}
+Return good if the evidence is sufficient and directly relevant; otherwise weak.
+Return valid JSON like {{"grade":"good"}}.
+""")
+    return {"web_grade": grade.grade, "trace": add_trace(state, f"Web evidence grade → {grade.grade.upper()}")}
