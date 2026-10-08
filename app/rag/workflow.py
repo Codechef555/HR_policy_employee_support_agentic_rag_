@@ -142,3 +142,10 @@ Question: {state['question']}\n\nPrivate KB:\n{context}
             citations.append({"title": src.split("/")[-1], "url": "", "type": "private_kb"})
     return {"answer": answer, "source_used": "private_kb", "citations": citations, "trace": add_trace(state, "Answer generation → PRIVATE KB")}
 
+def generate_from_web(state: AgentState):
+    answer = llm().invoke(f"""
+You are an enterprise HR policy and employee support copilot. The private company HR KB was insufficient.
+Answer ONLY from the web evidence below. Clearly say this is external public information and may require HR validation before being treated as company policy or employment guidance.
+Question: {state['question']}\n\nWeb evidence:\n{state['web_results']}
+""").content
+    return {"answer": answer, "source_used": "web_search", "trace": add_trace(state, "Answer generation → WEB SEARCH")}
