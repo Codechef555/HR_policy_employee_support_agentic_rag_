@@ -73,3 +73,6 @@ Return good only if the evidence is sufficient to answer confidently and specifi
 Otherwise return weak. JSON: {{"grade":"good"}} or {{"grade":"weak"}}.
 """)
     return {"kb_grade": grade.grade, "trace": add_trace(state, f"KB evidence grade → {grade.grade.upper()}")}
+
+def after_kb(state: AgentState) -> Literal["generate_from_kb", "search_web"]:
+    return "generate_from_kb" if state["kb_grade"] == "good" else "search_web"
