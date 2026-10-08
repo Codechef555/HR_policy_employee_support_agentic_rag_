@@ -163,3 +163,15 @@ def insufficient(state: AgentState):
 
 def build_graph():
     graph = StateGraph(AgentState)
+    for name, fn in {
+        "route_question": route_question,
+        "retrieve_kb": retrieve_kb,
+        "grade_kb": grade_kb,
+        "search_web": search_web,
+        "grade_web": grade_web,
+        "rewrite_query": rewrite_query,
+        "generate_from_kb": generate_from_kb,
+        "generate_from_web": generate_from_web,
+        "direct_answer": direct_answer,
+        "insufficient": insufficient,
+    }
