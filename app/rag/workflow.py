@@ -61,3 +61,15 @@ def route_after_router(state: AgentState) -> Literal["retrieve_kb", "direct_answ
 def retrieve_kb(state: AgentState):
     docs = get_retriever().invoke(state["current_query"])
     return {"kb_docs": docs, "trace": add_trace(state, f"Private KB retrieval → {len(docs)} chunks")}
+
+def grade_kb(state: AgentState):
+    grader = llm().with_structured_output(EvidenceGrade, method="json_mode")
+    context = "\n\n".join(f"Source: {d.metadata.get('source','unknown')}\n{d.page_content}" for d in state["kb_docs"])
+    grade = grader.invoke(f"""
+You grade evidence for an enterprise HR policy and employee support assistant.
+Question: {state['question']}
+Private company HR KB evidence:\n{context}
+Return good only if the evidence is sufficient to answer confidently and specifically.
+Otherwise return weak. JSON: {{"grade":"good"}} or {{"grade":"weak"}}.
+""")
+    return {"kb_grade": grade.grade, "trace": add_trace(state, f"KB evidence grade → {grade.grade.upper()}")}
