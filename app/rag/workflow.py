@@ -105,3 +105,9 @@ Return good if the evidence is sufficient and directly relevant; otherwise weak.
 Return valid JSON like {{"grade":"good"}}.
 """)
     return {"web_grade": grade.grade, "trace": add_trace(state, f"Web evidence grade → {grade.grade.upper()}")}
+
+def after_web(state: AgentState) -> Literal["generate_from_web", "insufficient", "rewrite_query"]:
+    if state['grade'] == "good":
+        return "generate_from_web"
+    if state['retry_count'] < settings.max_retries:
+        
