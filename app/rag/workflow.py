@@ -174,4 +174,9 @@ def build_graph():
         "generate_from_web": generate_from_web,
         "direct_answer": direct_answer,
         "insufficient": insufficient,
-    }
+    }.items():
+        graph.add_node(name, fn)
+    graph.add_edge(START, "route_question")
+    graph.add_conditional_edges("route_question", route_after_router, {
+        "retrieve_kb": "retrieve_kb", "direct_answer": "direct_answer"
+    })
