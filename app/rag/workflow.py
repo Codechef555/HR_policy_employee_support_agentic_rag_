@@ -189,3 +189,8 @@ def build_graph():
     graph.add_conditional_edges("grade_web", after_web, {
         "generate_from_web": "generate_from_web", "rewrite_query": "rewrite_query", "insufficient": "insufficient"
     })
+    graph.add_edge("rewrite_query", "retrieve_kb")
+    graph.add_edge("generate_from_kb", END)
+    graph.add_edge("generate_from_web", END)
+    graph.add_edge("direct_answer", END)
+    graph.add_edge("insufficient", END)
