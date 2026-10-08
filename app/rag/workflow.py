@@ -180,3 +180,12 @@ def build_graph():
     graph.add_conditional_edges("route_question", route_after_router, {
         "retrieve_kb": "retrieve_kb", "direct_answer": "direct_answer"
     })
+    
+    graph.add_edge("retrieve_kb", "grade_kb")
+    graph.add_conditional_edges("grade_kb", after_kb, {
+        "generate_from_kb": "generate_from_kb", "search_web": "search_web"
+    })
+    graph.add_edge("search_web", "grade_web")
+    graph.add_conditional_edges("grade_web", after_web, {
+        "generate_from_web": "generate_from_web", "rewrite_query": "rewrite_query", "insufficient": "insufficient"
+    })
