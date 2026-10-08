@@ -195,3 +195,6 @@ def build_graph():
     graph.add_edge("direct_answer", END)
     graph.add_edge("insufficient", END)
     return graph.compile()
+    
+    agent_graph = build_graph()
+
