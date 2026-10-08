@@ -195,6 +195,21 @@ def build_graph():
     graph.add_edge("direct_answer", END)
     graph.add_edge("insufficient", END)
     return graph.compile()
-    
-    agent_graph = build_graph()
 
+
+agent_graph = build_graph()
+
+def ask(question: str):
+    initial: AgentState = {
+        "question": question,
+        "current_query": question,
+        "kb_docs": [],
+        "web_results": "",
+        "kb_grade": "",
+        "web_grade": "",
+        "answer": "",
+        "source_used": "",
+        "retry_count": 0,
+        "trace": [],
+        "citations": [],
+    }
