@@ -149,3 +149,7 @@ Answer ONLY from the web evidence below. Clearly say this is external public inf
 Question: {state['question']}\n\nWeb evidence:\n{state['web_results']}
 """).content
     return {"answer": answer, "source_used": "web_search", "trace": add_trace(state, "Answer generation → WEB SEARCH")}
+
+def direct_answer(state: AgentState):
+    answer = llm().invoke(f"Respond briefly and naturally to: {state['question']}").content
+    return {"answer": answer, "source_used": "direct", "trace": add_trace(state, "Direct response → no retrieval")}
