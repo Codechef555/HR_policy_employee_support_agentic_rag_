@@ -18,3 +18,7 @@ def init_db() -> None:
     )
     con.commit()
     con.close()
+
+
+def write_audit(questions: str, source_used: str, trace: list[str]) -> None:
+    
