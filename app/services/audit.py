@@ -21,4 +21,9 @@ def init_db() -> None:
 
 
 def write_audit(questions: str, source_used: str, trace: list[str]) -> None:
-    
+    con = sqlite3.connect(settings.audit_db_path)
+    con.execute(
+        "INSERT INTO query_audit(created_at, question, source_used, trace_json) VALUES (?, ?, ?, ?)",
+        (datetime.now(timezone.utc).isoformat(), question, source_used, json.dumps(trace)),
+    )
+
