@@ -26,4 +26,6 @@ def write_audit(questions: str, source_used: str, trace: list[str]) -> None:
         "INSERT INTO query_audit(created_at, question, source_used, trace_json) VALUES (?, ?, ?, ?)",
         (datetime.now(timezone.utc).isoformat(), question, source_used, json.dumps(trace)),
     )
+    con.commit()
+    con.close()
 
