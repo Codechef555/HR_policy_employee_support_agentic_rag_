@@ -5,3 +5,4 @@ from app.core.config import get_settings
 from app.rag.workflow import ask
 from app.rag.vectorstore import add_documents
 from app.services.ingestion import load_file, chunk_documents, SUPPORTED
+from app.services.audit import write_audit
