@@ -13,3 +13,7 @@ settings = get_settings()
 
 class ChatRequest(BaseModel):
     question: str = Field(min_length=2, max_length=3000)
+
+@router.get("/health")
+def health():
+    return {"status": "ok", "service": settings.app_name}
