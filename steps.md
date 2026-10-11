@@ -15,12 +15,12 @@
 8. **`app/rag/state.py`** — Define the LangGraph shared state containing the question, retrieved documents, grades, answer, retries, citations, and trace.
 
 9. **`app/rag/workflow.py`** — Build the main Agentic RAG workflow: **Route → Retrieve → Grade → Web Search → Rewrite/Retry → Generate Answer**.
-**Its done bro
-
 
 10. **`app/services/audit.py`** — Add audit logging so you can track questions, sources used, and the agent's execution path.
 
 11. **`app/api/routes.py`** — Create FastAPI endpoints for chatting with the Agentic RAG system, uploading documents, health checks, and audit information.
+
+**Its done bro
 
 12. **`app/main.py`** — Create the main FastAPI application and connect the API routes, templates, and static files.
 
