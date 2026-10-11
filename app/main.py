@@ -14,3 +14,4 @@ init_db()
 
 app = FastAPI(title=settings.app_name, version="1.0.0")
 app.include_router(router)
+app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
