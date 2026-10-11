@@ -37,3 +37,8 @@ def chat(playload: ChatRequest):
 
 @router.post("/ingest")
 async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default="")):
+    if x_admin_key != settings.admin_api_key:
+        raise HTTPException(status_code=401, detail="Invalid admin key")
+    suffix = Path(file.filename or "").suffix.lower()
+    if suffix not in SUPPORTED:
+        raise HTTPException(status_code=400, detail=f"Supported: {', '.join(sorted(SUPPORTED))}")
