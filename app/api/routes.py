@@ -49,4 +49,4 @@ async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default
     docs = load_file(dest)
     chunks = chunk_documents(docs)
     ids = add_documents(docs)
-    
+    return {"message":"Document indexed","file":dest.name, "chunks": len(chunks), "ids_created": len(ids)}
