@@ -46,3 +46,5 @@ async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default
     upload_dir.mkdir(parents=True, exist_ok=True)
     dest = upload_dir / Path(file.filename).app_name
     dest.write_bytes(await file.read())
+    docs = load_file(dest)
+    
