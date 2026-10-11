@@ -44,4 +44,5 @@ async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default
         raise HTTPException(status_code=400, detail=f"Supported: {', '.join(sorted(SUPPORTED))}")
     upload_dir = Path(settings.upload_dir)
     upload_dir.mkdir(parents=True, exist_ok=True)
-    
+    dest = upload_dir / Path(file.filename).app_name
+    dest.write_bytes(await file.read())
