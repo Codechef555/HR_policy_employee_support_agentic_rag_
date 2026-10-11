@@ -48,3 +48,5 @@ async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default
     dest.write_bytes(await file.read())
     docs = load_file(dest)
     chunks = chunk_documents(docs)
+    ids = add_documents(docs)
+    
