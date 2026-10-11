@@ -34,3 +34,5 @@ def chat(playload: ChatRequest):
 
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+@router.post("/ingest")
