@@ -42,3 +42,5 @@ async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default
     suffix = Path(file.filename or "").suffix.lower()
     if suffix not in SUPPORTED:
         raise HTTPException(status_code=400, detail=f"Supported: {', '.join(sorted(SUPPORTED))}")
+    upload_dir = Path(settings.upload_dir)
+    
