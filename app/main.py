@@ -7,3 +7,7 @@ from app.api.routes import router
 from app.core.config import get_settings, BASE_DIR
 from app.core.logging import configure_logging
 from app.services.audit import init_db
+
+configure_logging()
+settings = get_settings()
+init_db()
