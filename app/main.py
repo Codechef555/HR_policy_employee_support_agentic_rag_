@@ -13,4 +13,4 @@ settings = get_settings()
 init_db()
 
 app = FastAPI(title=settings.app_name, version="1.0.0")
-
+app.include_router(router)
