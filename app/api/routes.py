@@ -36,3 +36,4 @@ def chat(playload: ChatRequest):
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 @router.post("/ingest")
+async def ingest(file: UploadFile = File(...), x_admin_key: str = Header(default="")):
