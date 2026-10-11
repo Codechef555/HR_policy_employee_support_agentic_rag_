@@ -17,3 +17,5 @@ class ChatRequest(BaseModel):
 @router.get("/health")
 def health():
     return {"status": "ok", "service": settings.app_name}
+
+@router.post("/chat")
