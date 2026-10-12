@@ -15,4 +15,4 @@ function addMessage(role, text, source='', citations=[]){
     chat.appendChild(wrap); chat.scrollTop=chat.scrollHeight;
 }
 
-function renderTrace(items=[]){}
+function renderTrace(items=[]){trace.innerHTML=items.length?items.map(x=>`<div class="trace-item">${escapeHtml(x)}</div>`).join(''):'<div class="empty">No trace.</div>';}
