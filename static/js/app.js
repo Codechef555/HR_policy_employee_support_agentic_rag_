@@ -13,5 +13,6 @@ function addMessage(role, text, source='', citations=[]){
     wrap.innerHTML=`<div class="avatar">AI</div><div class="bubble">${formatText(text)}${source?`<div class="answer-source">Source: ${escapeHtml(source)}</div>`:''}${citeHtml}</div>`;
 
     chat.appendChild(wrap); chat.scrollTop=chat.scrollHeight;
-
 }
+
+function renderTrace(items=[]){}
