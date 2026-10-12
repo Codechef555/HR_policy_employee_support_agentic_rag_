@@ -1,0 +1,1 @@
+const chat = document.getElementById('chat');
