@@ -9,4 +9,6 @@ function formatText(s=''){return escapeHtml(s).replace(/\n/g,'<br>');}
 
 function addMessage(role, text, source='', citations=[]){
     const wrap=document.createElement('div'); wrap.className=`message ${role}`;
+    const citeHtml=citations.length?`<div class="citations"><strong>Sources</strong><br>${citations.map(c=>c.url?`<a href="${escapeHtml(c.url)}" target="_blank" rel="noopener">${escapeHtml(c.title)}</a>`:escapeHtml(c.title)).join('<br>')}</div>`:'';
+    
 }
