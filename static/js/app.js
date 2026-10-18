@@ -38,3 +38,9 @@ document.querySelectorAll('.example').forEach(b=>b.addEventListener('click',()=>
 const modal = document.getElementById('uploadModal');
 document.getElementById('openUpload').onclick()=>modal.classList.remove('hidden');
 document.getElementById('closeUpload').onclick()=>modal.classList.remove('hidden');
+document.getElementById('uploadBtn').onclick=async()=>{
+  const file=document.getElementById('fileInput').files[0]; const key=document.getElementById('adminKey').value; const status=document.getElementById('uploadStatus');
+  if(!file){status.textContent='Choose a file first.'; return;}
+  status.textContent='Indexing document...'; const fd=new FormData(); fd.append('file',file);
+  try{const r=await fetch('/api/ingest',{method:'POST',headers:{'X-Admin-Key':key},body:fd}); const d=await r.json(); if(!r.ok) throw new Error(d.detail||'Upload failed'); status.textContent=`Indexed ${d.file}: ${d.chunks} chunks.`;}catch(e){status.textContent=`Error: ${e.message}`;}
+};
