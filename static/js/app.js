@@ -29,4 +29,5 @@ async function askAgent(q){
         renderTrace(['Request failed']);
         sourceUsed.textContent='Error;'
       }
+      finally{btn.disabled=false;}
 }
