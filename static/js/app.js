@@ -31,3 +31,4 @@ async function askAgent(q){
       }
       finally{btn.disabled=false;}
 }
+form.addEventListener('submit',e=>{e.preventDefault(); const q=question.value.trim(); if(q) askAgent(q);});
