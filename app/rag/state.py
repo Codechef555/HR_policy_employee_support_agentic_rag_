@@ -24,3 +24,4 @@ class AgentState(TypedDict):
     retry_count: int
     trace: List[str]
     citations: List[dict]
+    
