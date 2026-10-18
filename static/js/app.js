@@ -23,6 +23,7 @@ async function askAgent(q){
       try{
         const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
         const data=await res.json(); if(!res.ok) throw new Error(data.detail||'Request failed');
+        addMessage('assistant',data.answer,data.source_used,data.citations||[]); renderTrace(data.trace||[]); sourceUsed.textContent=data.source_used;
       }catch(e){
 
       }
