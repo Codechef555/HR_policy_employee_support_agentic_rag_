@@ -17,4 +17,7 @@ function addMessage(role, text, source='', citations=[]){
 
 function renderTrace(items=[]){trace.innerHTML=items.length?items.map(x=>`<div class="trace-item">${escapeHtml(x)}</div>`).join(''):'<div class="empty">No trace.</div>';}
 
-async function askAgent(q){}
+async function askAgent(q){
+      addMessage('user',q); question.value=''; renderTrace(['Running LangGraph workflow...']); sourceUsed.textContent='Running';
+      const btn=form.querySelector('button'); btn.disabled=true;
+}
