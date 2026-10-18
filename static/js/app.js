@@ -35,4 +35,4 @@ form.addEventListener('submit',e=>{e.preventDefault(); const q=question.value.tr
 
 document.querySelectorAll('.example').forEach(b=>b.addEventListener('click',()=>askAgent(b.textContent.trim())));
 
-const modal = document.getElementById('uploadModel');
+const modal = document.getElementById('uploadModal');
