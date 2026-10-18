@@ -20,4 +20,10 @@ function renderTrace(items=[]){trace.innerHTML=items.length?items.map(x=>`<div c
 async function askAgent(q){
       addMessage('user',q); question.value=''; renderTrace(['Running LangGraph workflow...']); sourceUsed.textContent='Running';
       const btn=form.querySelector('button'); btn.disabled=true;
+      try{
+        const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
+        const data=await res.json(); if(!res.ok) throw new Error(data.detail||'Request failed');
+      }catch(e){
+
+      }
 }
