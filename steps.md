@@ -20,8 +20,6 @@
 
 11. **`app/api/routes.py`** — Create FastAPI endpoints for chatting with the Agentic RAG system, uploading documents, health checks, and audit information.
 
-**Its done bro
-
 12. **`app/main.py`** — Create the main FastAPI application and connect the API routes, templates, and static files.
 
 13. **`templates/index.html`** — Build the main UI structure for chat, Agentic RAG workflow visualization, document upload, sources, and agent trace.
@@ -29,5 +27,7 @@
 14. **`static/css/style.css`** — Add styling to make the application look like a professional enterprise AI product.
 
 15. **`static/js/app.js`** — Connect the frontend with FastAPI and display answers, citations, source routes, execution traces, and upload results dynamically.
+
+**Its done bro : level 2.0 upgraded version 
 
 16. **`run.py`** — Create the final application entry point to start the FastAPI server.
