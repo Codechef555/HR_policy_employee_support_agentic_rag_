@@ -12,8 +12,6 @@ logger = logging.get_logger(__name__)
 settings = get_settings()
 
 _llm = None
-_web_search = None
-
 def llm():
     global _llm
     if _llm is None:
@@ -25,7 +23,8 @@ def llm():
             api_key = settings.openai_api_key,
         )
     return _llm
-
+    
+_web_search = None
 def web_search_tool():
     global _web_search
     if _web_search is None:
