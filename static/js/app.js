@@ -34,3 +34,5 @@ async function askAgent(q){
 form.addEventListener('submit',e=>{e.preventDefault(); const q=question.value.trim(); if(q) askAgent(q);});
 
 document.querySelectorAll('.example').forEach(b=>b.addEventListener('click',()=>askAgent(b.textContent.trim())));
+
+const modal = document.getElementById('uploadModel');
