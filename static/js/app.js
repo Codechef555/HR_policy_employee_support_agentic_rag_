@@ -37,4 +37,4 @@ document.querySelectorAll('.example').forEach(b=>b.addEventListener('click',()=>
 
 const modal = document.getElementById('uploadModal');
 document.getElementById('openUpload').onclick()=>modal.classList.remove('hidden');
-document.getElementById('').onclick()=>modal.
+document.getElementById('closeUpload').onclick()=>modal.classList.remove('hidden');
