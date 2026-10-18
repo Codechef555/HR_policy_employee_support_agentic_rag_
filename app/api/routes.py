@@ -29,7 +29,6 @@ def chat(playload: ChatRequest):
             "trace": result.get("trace", []),
             "citations": result.get("citations", []),
             "rewritten_query": result.get("current_query", payload.question),
-
         }
 
     except Exception as exc:
