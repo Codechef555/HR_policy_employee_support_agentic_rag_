@@ -25,6 +25,6 @@ async function askAgent(q){
         const data=await res.json(); if(!res.ok) throw new Error(data.detail||'Request failed');
         addMessage('assistant',data.answer,data.source_used,data.citations||[]); renderTrace(data.trace||[]); sourceUsed.textContent=data.source_used;
       }catch(e){
-
+        addMessage('assistant',`Error: ${e.message}`)
       }
 }
