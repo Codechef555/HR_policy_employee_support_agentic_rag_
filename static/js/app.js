@@ -36,5 +36,5 @@ form.addEventListener('submit',e=>{e.preventDefault(); const q=question.value.tr
 document.querySelectorAll('.example').forEach(b=>b.addEventListener('click',()=>askAgent(b.textContent.trim())));
 
 const modal = document.getElementById('uploadModal');
-document.getElementById('openUpload').onclick()=>
-document.getElementById('').onclick()=>
+document.getElementById('openUpload').onclick()=>modal.classList.remove('hidden');
+document.getElementById('').onclick()=>modal.
